@@ -68,6 +68,68 @@ public class LinkedListImpl {
         size += 1;
     }
 
+    public int deleteFirst () {
+        int value = head.value;
+        head = head.next;
+        if (head == null) {
+            tail = null;
+        }
+        size -= 1;
+        return value;
+    }
+
+    public Node get(int index) {
+
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public int deleteLast() {
+        if (size <= 1) {
+            return deleteFirst();
+        }
+
+        Node secondLast = get(size - 2);
+        int value = tail.value;
+        tail = secondLast;
+        tail.next = null;
+
+        return value;
+    }
+
+    public int delete(int index) {
+        if (index == 0)
+            return deleteFirst();
+        if (index == size - 1)
+            return deleteLast();
+
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+
+        Node prev = get(index - 1);
+        int value = prev.next.value;
+        prev.next = prev.next.next;
+        return value;
+    }
+
+    public Node find(int value) {
+        Node node = head;
+        while (node != null) {
+            if(node.value == value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null; // Value not found
+    }
+
     private class Node {
         private int value;
         private Node next;
