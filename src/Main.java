@@ -1,9 +1,15 @@
-import linkedlist.LinkedListImpl;
+import linkedlist.doubly.DoublyLinkedList;
+import linkedlist.singly.LinkedListImpl;
 
 public class Main {
 
     public static void main(String[] args) {
+//        singlyLL();
 
+        doublyLL();
+    }
+
+    public static void singlyLL() {
         LinkedListImpl linkedList = new LinkedListImpl();
 
         linkedList.insertAtFirst(60);
@@ -29,6 +35,16 @@ public class Main {
         System.out.println("Value Removed at index 2: " + linkedList.delete(2));
 
         linkedList.display();
-        
+    }
+
+    public static void doublyLL() {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.insertFirst(40);
+        doublyLinkedList.insertFirst(30);
+        doublyLinkedList.insertFirst(20);
+        doublyLinkedList.insertFirst(10);
+
+        doublyLinkedList.display();
     }
 }
