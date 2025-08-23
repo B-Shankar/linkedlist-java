@@ -9,7 +9,7 @@ public class DoublyLinkedList {
         node.next = head;
         node.prev = null;
         if (head != null) {
-            head.prev = null;
+            head.prev = node;
         }
         head = node;
     }
@@ -17,6 +17,7 @@ public class DoublyLinkedList {
     public void display() {
         Node node = head;
         Node last = null;
+        System.out.println("Forward: ");
         while (node != null) {
             System.out.print(node.value + " <=> ");
             last = node;
