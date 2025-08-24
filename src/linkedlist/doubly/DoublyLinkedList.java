@@ -14,6 +14,53 @@ public class DoublyLinkedList {
         head = node;
     }
 
+    public void insertLast(int value) {
+        Node node = new Node(value);
+        Node last = head;
+
+        node.next = null;
+
+        if (head == null) {
+            node.prev = null;
+            head = node;
+            return;
+        }
+
+        while (last.next != null) {
+            last = last.next;
+        }
+
+        last.next = node;
+        node.prev = last;
+    }
+
+    public void insertAtIndex(int value, int index) {
+        if (index == 0) {
+            insertFirst(value);
+            return;
+        }
+
+        Node temp = head;
+        int i = 0;
+
+        while (temp != null && i < index - 1) {
+            temp = temp.next;
+            i++;
+        }
+
+        if (temp == null)
+            throw new NullPointerException("Index out of bound.");
+
+        Node node = new Node(value);
+        node.prev = temp;
+        node.next = temp.next;
+
+        if (temp.next != null)
+            temp.next.prev = node;
+
+        temp.next = node;
+    }
+
     public void display() {
         Node node = head;
         Node last = null;
