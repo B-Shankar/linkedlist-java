@@ -44,8 +44,18 @@ public class Main {
         doublyLinkedList.insertFirst(30);
         doublyLinkedList.insertFirst(20);
         doublyLinkedList.insertFirst(10);
+
+        doublyLinkedList.display();
+
         doublyLinkedList.insertLast(50);
+
+        doublyLinkedList.display();
+
         doublyLinkedList.insertAtIndex(1, 2);
+
+        doublyLinkedList.display();
+
+        doublyLinkedList.insertAfter(50, 60);
 
         doublyLinkedList.display();
     }

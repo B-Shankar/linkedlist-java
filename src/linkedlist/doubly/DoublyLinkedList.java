@@ -61,10 +61,40 @@ public class DoublyLinkedList {
         temp.next = node;
     }
 
+    public Node find(int value) {
+        Node node = head;
+
+        while (node != null) {
+            if (node.value == value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+
+    public void insertAfter(int after, int value) {
+        Node p = find(after);
+
+        if (p == null) {
+            System.out.println("does not exits");
+            return;
+        }
+
+        Node node = new Node(value);
+        node.next = p.next;
+        p.next = node;
+        node.prev = p;
+
+        if (node.next != null)
+            node.next.prev = node;
+
+    }
+
     public void display() {
         Node node = head;
         Node last = null;
-        System.out.println("Forward: ");
+        System.out.print("Forward: ");
         while (node != null) {
             System.out.print(node.value + " <=> ");
             last = node;
@@ -77,7 +107,7 @@ public class DoublyLinkedList {
             System.out.print(last.value + " <=> ");
             last = last.prev;
         }
-        System.out.println("Start");
+        System.out.println("Start" + '\n');
     }
 
     private class Node {
