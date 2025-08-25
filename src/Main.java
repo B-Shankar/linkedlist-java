@@ -1,3 +1,4 @@
+import linkedlist.circular.CircularLinkedList;
 import linkedlist.doubly.DoublyLinkedList;
 import linkedlist.singly.LinkedListImpl;
 
@@ -6,7 +7,9 @@ public class Main {
     public static void main(String[] args) {
 //        singlyLL();
 
-        doublyLL();
+//        doublyLL();
+
+        circularLL();
     }
 
     public static void singlyLL() {
@@ -58,5 +61,19 @@ public class Main {
         doublyLinkedList.insertAfter(50, 60);
 
         doublyLinkedList.display();
+    }
+
+    public static void circularLL() {
+        CircularLinkedList circularLinkedList = new CircularLinkedList();
+
+        circularLinkedList.insert(10);
+        circularLinkedList.insert(20);
+        circularLinkedList.insert(30);
+
+        circularLinkedList.display();
+
+        circularLinkedList.delete(20);
+
+        circularLinkedList.display();
     }
 }
