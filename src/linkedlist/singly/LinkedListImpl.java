@@ -130,6 +130,23 @@ public class LinkedListImpl {
         return null; // Value not found
     }
 
+    public void insertRecursion(int value, int index) {
+        head = insertRecursion(value, index, head);
+        System.out.println("<Head>: " + head.value);
+    }
+
+    private Node insertRecursion(int value, int index, Node node) {
+        if (index == 0) {
+            Node temp = new Node(value, node);
+            size++;
+            return temp;
+        }
+
+        node.next = insertRecursion(value, index-1, node.next);
+        System.out.println("[Node]: " + node.value);
+        return node;
+    }
+
     private class Node {
         private int value;
         private Node next;

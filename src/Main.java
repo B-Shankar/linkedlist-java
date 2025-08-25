@@ -9,7 +9,9 @@ public class Main {
 
 //        doublyLL();
 
-        circularLL();
+//        circularLL();
+
+        singlyLLRecursion();
     }
 
     public static void singlyLL() {
@@ -36,6 +38,24 @@ public class Main {
         linkedList.display();
 
         System.out.println("Value Removed at index 2: " + linkedList.delete(2));
+
+        linkedList.display();
+
+        linkedList.insertRecursion(88, 3);
+
+        linkedList.display();
+    }
+
+    public static void singlyLLRecursion() {
+        LinkedListImpl linkedList = new LinkedListImpl();
+        linkedList.insertAtFirst(5);
+        linkedList.insertAtFirst(2);
+        linkedList.insertAtFirst(9);
+        linkedList.insertAtFirst(7);
+
+        linkedList.display();
+
+        linkedList.insertRecursion(21, 2);
 
         linkedList.display();
     }
