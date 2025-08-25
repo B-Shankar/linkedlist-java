@@ -13,7 +13,9 @@ public class Main {
 
 //        singlyLLRecursion();
 
-        removeDuplicates();
+//        removeDuplicates();
+
+        mergeLists();
     }
 
     public static void singlyLL() {
@@ -115,5 +117,30 @@ public class Main {
         linkedList.duplicates();
 
         linkedList.display();
+    }
+
+    public static void mergeLists() {
+        //21. Merge Two Sorted Lists
+        LinkedListImpl first = new LinkedListImpl();
+
+        first.insertAtFirst(40);
+        first.insertAtFirst(21);
+        first.insertAtFirst(7);
+        first.insertAtFirst(7);
+        first.insertAtFirst(1);
+
+        LinkedListImpl second = new LinkedListImpl();
+
+        second.insertAtFirst(38);
+        second.insertAtFirst(19);
+        second.insertAtFirst(12);
+        second.insertAtFirst(8);
+        second.insertAtFirst(3);
+        second.insertAtFirst(2);
+        second.insertAtFirst(1);
+        second.insertAtFirst(1);
+
+        LinkedListImpl ans = LinkedListImpl.mergeTwoLinkedList(first, second);
+        ans.display();
     }
 }

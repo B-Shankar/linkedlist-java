@@ -162,6 +162,35 @@ public class LinkedListImpl {
         tail.next = null;
     }
 
+    public static LinkedListImpl mergeTwoLinkedList(LinkedListImpl first, LinkedListImpl second) {
+        Node f = first.head;
+        Node s = second.head;
+
+        LinkedListImpl ans = new LinkedListImpl();
+
+        while (f != null && s != null) {
+            if (f.value < s.value) {
+                ans.insertAtLast(f.value);
+                f = f.next;
+            } else {
+                ans.insertAtLast(s.value);
+                s = s.next;
+            }
+        }
+
+        while (f != null) {
+            ans.insertAtLast(f.value);
+            f = f.next;
+        }
+
+        while (s != null) {
+            ans.insertAtLast(s.value);
+            s = s.next;
+        }
+
+        return ans;
+    }
+
     private class Node {
         private int value;
         private Node next;
