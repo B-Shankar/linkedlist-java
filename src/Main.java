@@ -11,7 +11,9 @@ public class Main {
 
 //        circularLL();
 
-        singlyLLRecursion();
+//        singlyLLRecursion();
+
+        removeDuplicates();
     }
 
     public static void singlyLL() {
@@ -95,5 +97,23 @@ public class Main {
         circularLinkedList.delete(20);
 
         circularLinkedList.display();
+    }
+
+    public static void removeDuplicates() {
+        //83. Remove Duplicates from Sorted List
+        LinkedListImpl linkedList = new LinkedListImpl();
+
+        linkedList.insertAtFirst(3);
+        linkedList.insertAtFirst(3);
+        linkedList.insertAtFirst(2);
+        linkedList.insertAtFirst(1);
+        linkedList.insertAtFirst(1);
+        linkedList.insertAtFirst(1);
+
+        linkedList.display();
+
+        linkedList.duplicates();
+
+        linkedList.display();
     }
 }
