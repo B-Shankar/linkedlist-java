@@ -81,4 +81,50 @@ public class ReverseAlternateKGroups {
             return head; // no reversal, keep as is
         }
     }
+
+    private ListNode reverseAlternateKGroup(ListNode head, int k) {
+        if (k <= 1 || head == null) return head;
+
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode prevGroupEnd = dummy;
+        ListNode curr = head;
+        boolean shouldReverse = true;
+
+        while (curr != null) {
+            // check if there are at least k nodes left
+            ListNode check = curr;
+            int count = 0;
+            while (check != null && count < k) {
+                check = check.next;
+                count++;
+            }
+            if (count < k) break;
+
+            if (shouldReverse) {
+                // reverse k nodes
+                ListNode prev = null;
+                ListNode currStart = curr;
+                for (int i = 0; i < k; i++) {
+                    ListNode next = curr.next;
+                    curr.next = prev;
+                    prev = curr;
+                    curr = next;
+                }
+                prevGroupEnd.next = prev;
+                currStart.next = curr;
+                prevGroupEnd = currStart;
+            } else {
+                // skip k nodes
+                for (int i = 0; i < k; i++) {
+                    prevGroupEnd = curr;
+                    curr = curr.next;
+                }
+            }
+
+            shouldReverse = !shouldReverse; // alternate
+        }
+
+        return dummy.next;
+    }
 }
