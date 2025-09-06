@@ -1,7 +1,5 @@
 package linkedlist.questions;
 
-import java.util.List;
-
 //25. Reverse Nodes in k-Group
 public class ReverseKGroups {
 
