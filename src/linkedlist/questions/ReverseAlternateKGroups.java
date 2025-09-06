@@ -50,6 +50,10 @@ public class ReverseAlternateKGroups {
         list.display();
     }
 
+    /*
+        Time Complexity: O(n) (each node processed once).
+        Space Complexity: O(n/k) recursive calls (stack space).
+    */
     private ListNode reverseAlternateKGroup(ListNode head, int k, boolean shouldReverse) {
         if (head == null) return null;
 
@@ -82,6 +86,10 @@ public class ReverseAlternateKGroups {
         }
     }
 
+    /*
+        Time Complexity: O(n) → each node is visited once.
+        Space Complexity: O(1) → only a few pointers.
+    */
     private ListNode reverseAlternateKGroup(ListNode head, int k) {
         if (k <= 1 || head == null) return head;
 
